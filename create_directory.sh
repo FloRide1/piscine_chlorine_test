@@ -28,8 +28,6 @@ if [ $# -ge 1 ]; then
         shift
     done
 
-    cd $HOME
-
     if [ "$FOLDER" != "" ]; then
         FOLDER_NAME="$SCRIPT_PATH/$FOLDER"
         mkdir $FOLDER_NAME
@@ -38,11 +36,17 @@ if [ $# -ge 1 ]; then
         else
             SCRIPT="$FOLDER_NAME/${NAME}$REGEXEND"
         fi
-
         touch "$SCRIPT"
 
         mkdir "$PISCINE_FOLDER/$FOLDER"
+        cp "$SCRIPT_PATH/Makefile" "$PISCINE_FOLDER/$FOLDER"
+
+        if [ "$PROJECT" != "" ]; then
+            touch "$PISCINE_FOLDER/$FOLDER/$PROJECT.c"
+        fi
+
         ln -s $SCRIPT "$PISCINE_FOLDER/$FOLDER"
 
+        cd "$PISCINE_FOLDER/$FOLDER"
     fi
 fi
