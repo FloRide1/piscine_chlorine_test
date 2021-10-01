@@ -12,6 +12,13 @@ Add in your `.gitignore`
 *_test.c
 ```
 
+Edit theses variable in `create_directory.sh`
+```sh
+NAME="<your_name>"
+PISCINE_FOLDER="$HOME/afs/<your_piscine_path>"
+SCRIPT_PATH="$HOME/afs/<your_chlorine_path>"
+```
+
 If you want to use the clang-format (`make format`), you need to
 have it install (not by default on PIE)
 
