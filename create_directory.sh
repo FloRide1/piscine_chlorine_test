@@ -55,7 +55,7 @@ else
 			for j in $i/*; do 
 				if [ -f "$j" ]; then 
 					ln -sf $j $PISCINE_FOLDER/$(basename $i)
-					ln -s $SCRIPT $PISCINE_FOLDER/$(basename $i)
+					# ln -s $SCRIPT $PISCINE_FOLDER/$(basename $i)
 				fi
 			done
 		fi
