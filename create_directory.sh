@@ -49,4 +49,14 @@ if [ $# -ge 1 ]; then
 
         cd "$PISCINE_FOLDER/$FOLDER"
     fi
+else 
+	for i in $SCRIPT_PATH/*; do
+		if [ -d "$i" ]; then
+			for j in $i/*; do 
+				if [ -f "$j" ]; then 
+					ln -sf $j $PISCINE_FOLDER/$(basename $i)
+				fi
+			done
+		fi
+	done
 fi
