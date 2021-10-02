@@ -39,7 +39,7 @@ if [ $# -ge 1 ]; then
         touch "$SCRIPT"
 
         mkdir "$PISCINE_FOLDER/$FOLDER"
-        cp "$SCRIPT_PATH/Makefile" "$PISCINE_FOLDER/$FOLDER"
+        ln -s "$SCRIPT_PATH/Makefile" "$PISCINE_FOLDER/$FOLDER"
 
         if [ "$PROJECT" != "" ]; then
             touch "$PISCINE_FOLDER/$FOLDER/$PROJECT.c"
@@ -55,6 +55,7 @@ else
 			for j in $i/*; do 
 				if [ -f "$j" ]; then 
 					ln -sf $j $PISCINE_FOLDER/$(basename $i)
+					ln -s $SCRIPT $PISCINE_FOLDER/$(basename $i)
 				fi
 			done
 		fi
